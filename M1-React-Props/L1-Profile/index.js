@@ -23,3 +23,25 @@
 
 const domRoot = document.getElementById('root');
 const root = ReactDOM.createRoot(domRoot);
+
+// function Profile(props) {
+//   return (
+//     <>
+//       <h1>Name : {props.name}</h1>
+//       <h2>Age : {props.age}</h2>
+//     </>
+//   );
+// }
+
+function Profile(props) {
+  const { name, age } = props; // Destructuring
+
+  return (
+    <>
+      <h1>Name : {name}</h1>
+      <h2>Age : {age}</h2>
+    </>
+  );
+}
+
+root.render(<Profile name='John Doe' age={27} />);
