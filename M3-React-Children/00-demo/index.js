@@ -15,3 +15,31 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 /**********************************************
  * Ex-1 : Card Component
  **********************************************/
+function Card(props) {
+  console.log(props);
+  return (
+    <div className='card-container'>
+      <div className='card'>
+        <div className='card-header'>{props.title}</div>
+        <div className='card-body'>{props.children}</div>
+        <div className='card-footer'>
+          <button>Click</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div className='container'>
+      <Card title='table'>
+        <p>Detail of Table</p>
+        <p>Picture</p>
+        <button>Buy Item</button>
+      </Card>
+    </div>
+  );
+}
+
+root.render(<App />);

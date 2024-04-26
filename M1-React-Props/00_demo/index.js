@@ -61,10 +61,45 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 /**********************************************
  * Ex-0 : Review JS Function
  **********************************************/
+// function createProfile() {
+//   return 'John Doe'; // string | boolean etc.
+// }
+
+function createProfile(name) {
+  return name; // string | boolean etc.
+}
+// alert(createProfile('John'));
 
 /**********************************************
  * Ex-1 : UserInfo (Pass a single String)
  **********************************************/
+
+// คนสร้างฟังก์ชัน
+function UserProfile(props) {
+  console.log(props);
+  // props.age = 2;
+  return (
+    <h1>
+      {props.name} : {props.age}
+    </h1>
+  ); // JSX | Component
+}
+
+function App() {
+  return (
+    <>
+      <UserProfile name='Jim Carry' age={30} isAdmin={false} />
+      {/* props = { name:"Jim Carry",age:30} */}
+      <UserProfile name='John Doe' age={25} isAdmin={true} />
+    </>
+  );
+}
+
+// คนเรียกใช้ฟังก์ชัน Caller
+// root.render(<App />);
+// ข้อควรระวัง
+// - Don't Modify Prop in Function Component (Read Only)
+// - Missing Props : จะได้ undefined (object missing key)
 
 /**********************************************
  * Ex-2 : Pass String and Number
@@ -82,9 +117,45 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
  * Ex-4 : Pass Array
  **********************************************/
 
+// function List(props) {
+//   return <h3>{props.data}</h3>;
+// }
+// const friend = ['John', 'Jack', 'Jane'];
+
+// root.render(<List data={friend} />);
+
 /**********************************************
  * Ex-5 : Pass Object
  **********************************************/
+// function ProductDetail(props) {
+//   return (
+//     <>
+//       <h2>Name : {props.name} </h2>
+//       <h2>Price : {props.price} </h2>
+//       <h2>Quantity : {props.quantity}</h2>
+//     </>
+//   );
+// }
+
+// root.render(<ProductDetail name='TV' price={20000} quantity={2} />);
+
+function ProductDetail(props) {
+  return (
+    <>
+      <h2>Name : {props.detail?.name}</h2>
+      <h2>Price : {props.detail?.price} </h2>
+      <h2>Quantity : {props.detail?.quantity} </h2>
+    </>
+  );
+}
+
+const data = {
+  name: 'TV',
+  price: 20000,
+  quantity: 2,
+};
+// undefined.name == JS Crash
+root.render(<ProductDetail detail={data} />);
 
 /**********************************************
  * Ex-6 : Pass Object
