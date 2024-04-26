@@ -26,4 +26,16 @@ h1 {
   align-items: center;
   background-color: wheat;
   height: 100vh;
+  gap: 5px;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 10px;
+  width: 700px;
+}
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
 }
