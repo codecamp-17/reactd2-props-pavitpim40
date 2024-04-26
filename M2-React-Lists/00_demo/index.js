@@ -143,8 +143,8 @@ function Board() {
 
   return (
     <ul>
-      {quotes.map((item) => (
-        <Card quote={item.quote} source={item.source} />
+      {quotes.map((item, index) => (
+        <Card key={index} quote={item.quote} source={item.source} />
       ))}
     </ul>
   );
